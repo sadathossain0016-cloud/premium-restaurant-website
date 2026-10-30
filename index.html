@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>La Revi — Haute Cuisine &amp; Cellar | Michelin Three Stars</title>
+  
+  <!-- Favicon / Monogram -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23ffb68d%22>LR</text></svg>">
+
+  <!-- Google Fonts & Material Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#111412",
+            "surface-dim": "#111412",
+            "surface-bright": "#373a38",
+            "surface-container-lowest": "#0c0f0d",
+            "surface-container-low": "#191c1b",
+            "surface-container": "#1d201f",
+            "surface-container-high": "#282b29",
+            "surface-container-highest": "#323533",
+            "on-surface": "#e1e3e0",
+            "on-surface-variant": "#d7c2b8",
+            "inverse-surface": "#e1e3e0",
+            "inverse-on-surface": "#2e312f",
+            "outline": "#9f8d84",
+            "outline-variant": "#52443c",
+            "surface-tint": "#ffb68d",
+            "primary": "#ffb68d",
+            "on-primary": "#502405",
+            "primary-container": "#995e3b",
+            "on-primary-container": "#ffebe2",
+            "inverse-primary": "#88502e",
+            "secondary": "#f2ba9f",
+            "on-secondary": "#4a2715",
+            "secondary-container": "#673f2b",
+            "on-secondary-container": "#e3ac92",
+            "champagne-accent": "#D4AF37",
+            "deep-charcoal": "#040605",
+            "rich-earth": "#36463F",
+            "warm-bronze": "#6D4629",
+            "muted-terra": "#522E1B"
+          },
+          spacing: {
+            "gutter": "2rem",
+            "margin": "4rem",
+            "space-xs": "0.5rem",
+            "space-sm": "1rem",
+            "space-md": "2rem",
+            "space-lg": "4rem",
+            "space-xl": "8rem"
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-surface font-sans text-on-surface selection:bg-primary selection:text-on-primary">
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="fixed top-24 right-6 z-[100] flex flex-col gap-3 pointer-events-none"></div>
+
+  <!-- Header & Navigation -->
+  <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl border-b border-outline-variant/30 transition-all duration-300">
+    <div class="h-20 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 border border-primary/50 flex items-center justify-center bg-surface-container-low group-hover:border-primary transition-colors">
+          <span class="font-serif-luxury text-primary text-xl font-bold tracking-wider">LR</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif-luxury tracking-[0.25em] text-lg uppercase text-on-surface font-medium leading-none">La Revi</span>
+          <span class="text-[9px] uppercase tracking-[0.3em] text-primary/80 mt-1">Haute Cuisine • 3 Michelin Stars</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden xl:flex items-center gap-8">
+        <a class="text-xs uppercase tracking-widest text-primary font-medium transition-colors" href="#home">Home</a>
+        <a class="text-xs uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors font-light" href="#philosophy">Story</a>
+        <a class="text-xs uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors font-light" href="#menu">Tasting Menu</a>
+        <a class="text-xs uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors font-light" href="#journey">The Journey</a>
+        <a class="text-xs uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors font-light" href="#cellar">Wine Cellar</a>
+        <a class="text-xs uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors font-light" href="#private-dining">Private Salons</a>
+        <a class="text-xs uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors font-light" href="#reservations">Reservations</a>
+        <a class="text-xs uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors font-light" href="#contact">Contact</a>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="hidden lg:flex items-center gap-4">
+        
+        <!-- Currency Selector Dropdown -->
+        <div class="relative group">
+          <button class="px-3 py-1.5 text-xs tracking-wider uppercase border border-outline-variant/40 bg-surface-container-high/60 text-on-surface-variant hover:text-on-surface hover:border-primary transition-colors flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[14px] text-primary">payments</span>
+            <span class="current-currency-label font-mono font-medium">USD</span>
+            <span class="material-symbols-outlined text-[14px]">expand_more</span>
+          </button>
+          <div class="absolute right-0 mt-1 w-28 bg-surface-container-high border border-outline-variant shadow-2xl py-1 hidden group-hover:block z-50">
+            <button onclick="setCurrency('USD')" class="w-full text-left px-3 py-1.5 text-xs text-on-surface hover:bg-primary/20 hover:text-primary transition-colors">USD ($)</button>
+            <button onclick="setCurrency('EUR')" class="w-full text-left px-3 py-1.5 text-xs text-on-surface hover:bg-primary/20 hover:text-primary transition-colors">EUR (€)</button>
+            <button onclick="setCurrency('GBP')" class="w-full text-left px-3 py-1.5 text-xs text-on-surface hover:bg-primary/20 hover:text-primary transition-colors">GBP (£)</button>
+            <button onclick="setCurrency('JPY')" class="w-full text-left px-3 py-1.5 text-xs text-on-surface hover:bg-primary/20 hover:text-primary transition-colors">JPY (¥)</button>
+          </div>
+        </div>
+
+        <!-- Ambient Lounge Soundscape Toggle -->
+        <button id="audio-ambient-btn" onclick="toggleAudioAmbience()" title="Toggle Atmospheric Soundscape" class="p-2 border border-outline-variant/40 bg-surface-container-high/60 text-on-surface-variant hover:text-primary hover:border-primary transition-colors flex items-center justify-center">
+          <span id="audio-ambient-icon" class="material-symbols-outlined text-[18px]">volume_off</span>
+        </button>
+
+        <!-- Manage / Find My Booking -->
+        <button onclick="openBookingLookupModal()" title="View or Manage Existing Booking" class="px-3 py-2 border border-outline-variant/40 text-on-surface-variant hover:text-on-surface hover:border-primary transition-colors text-xs uppercase tracking-wider flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px]">receipt_long</span>
+          <span>Find Booking</span>
+        </button>
+
+        <!-- Book Table CTA -->
+        <a href="#reservations" class="px-5 py-2.5 bg-primary text-on-primary text-xs uppercase tracking-widest font-semibold hover:bg-primary-fixed transition-colors flex items-center gap-2 shadow-lg">
+          <span class="material-symbols-outlined text-[16px]">table_bar</span>
+          <span>Book Table</span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <div class="flex items-center gap-3 lg:hidden">
+        <button onclick="toggleAudioAmbience()" class="p-2 text-on-surface-variant hover:text-primary">
+          <span class="material-symbols-outlined text-[20px]">volume_off</span>
+        </button>
+        <button onclick="toggleMobileMenu()" class="text-on-surface p-2 border border-outline-variant/40">
+          <span class="material-symbols-outlined text-[24px]">menu</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobile-drawer" class="fixed inset-0 z-40 bg-surface/98 backdrop-blur-2xl hidden lg:hidden flex flex-col justify-between p-8 pt-28 overflow-y-auto">
+    <div class="flex flex-col gap-6">
+      <div class="flex justify-between items-center pb-4 border-b border-outline-variant/30">
+        <span class="text-xs uppercase tracking-widest text-primary">Haute Cuisine Navigation</span>
+        <button onclick="toggleMobileMenu()" class="text-on-surface p-1">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <nav class="flex flex-col gap-4">
+        <a onclick="toggleMobileMenu()" href="#home" class="font-serif-luxury text-2xl text-on-surface hover:text-primary">Home</a>
+        <a onclick="toggleMobileMenu()" href="#philosophy" class="font-serif-luxury text-2xl text-on-surface hover:text-primary">The Philosophy</a>
+        <a onclick="toggleMobileMenu()" href="#menu" class="font-serif-luxury text-2xl text-on-surface hover:text-primary">Gastronomic Menu</a>
+        <a onclick="toggleMobileMenu()" href="#journey" class="font-serif-luxury text-2xl text-on-surface hover:text-primary">10-Course Journey</a>
+        <a onclick="toggleMobileMenu()" href="#cellar" class="font-serif-luxury text-2xl text-on-surface hover:text-primary">Wine Cellar &amp; Bar</a>
+        <a onclick="toggleMobileMenu()" href="#private-dining" class="font-serif-luxury text-2xl text-on-surface hover:text-primary">Private Dining</a>
+        <a onclick="toggleMobileMenu()" href="#reservations" class="font-serif-luxury text-2xl text-on-surface hover:text-primary">Table Reservations</a>
+        <a onclick="toggleMobileMenu()" href="#contact" class="font-serif-luxury text-2xl text-on-surface hover:text-primary">Concierge &amp; FAQ</a>
+      </nav>
+    </div>
+
+    <div class="pt-8 border-t border-outline-variant/30 flex flex-col gap-4">
+      <div class="flex items-center justify-between">
+        <span class="text-xs text-on-surface-variant uppercase tracking-wider">Currency</span>
+        <div class="flex gap-2">
+          <button onclick="setCurrency('USD'); toggleMobileMenu()" class="px-2 py-1 text-xs border border-outline-variant/40 hover:border-primary">USD</button>
+          <button onclick="setCurrency('EUR'); toggleMobileMenu()" class="px-2 py-1 text-xs border border-outline-variant/40 hover:border-primary">EUR</button>
+          <button onclick="setCurrency('GBP'); toggleMobileMenu()" class="px-2 py-1 text-xs border border-outline-variant/40 hover:border-primary">GBP</button>
+          <button onclick="setCurrency('JPY'); toggleMobileMenu()" class="px-2 py-1 text-xs border border-outline-variant/40 hover:border-primary">JPY</button>
+        </div>
+      </div>
+      <button onclick="toggleMobileMenu(); openBookingLookupModal()" class="w-full py-3 border border-outline-variant text-xs uppercase tracking-widest text-on-surface">
+        Find Existing Reservation
+      </button>
+      <a onclick="toggleMobileMenu()" href="#reservations" class="w-full py-3.5 bg-primary text-on-primary text-center text-xs uppercase tracking-widest font-semibold">
+        Book a Table
+      </a>
+    </div>
+  </div>
+
+  <main class="w-full">
+    
+    <!-- 1. Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      
+      <!-- Background Media with Dark Gradient -->
+      <div class="absolute inset-0 z-0 opacity-40">
+        <div class="bg-cover bg-center w-full h-full transform scale-105 duration-1000" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBeXCiZ52N5DMsCLUOFsKAXBvEdQ011_P_m4zAlsVMxrIbA3dRnyvFaNZCf3mPLKh_1pYvSXptqVN8WfCBcV4wH5HTpb0UBbXOHI0oXXAR43E-v-DmSXE3-0slpMsbIQtUU46DW9b_9GDx2GzBKuSYTw-b3r7fnYaKpi2Mk-HJtPNPa0yKGQI4f5DbnXiJd85og06vUPCOzRtrzIAWZN23ETZd0yjbmlh1mhRaSCUMg')"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/60 to-surface/80"></div>
+        <div class="absolute inset-0 bg-radial-gradient from-transparent to-deep-charcoal opacity-70"></div>
+      </div>
+
+      <div class="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center gap-6 py-16">
+        
+        <!-- Accolade Badge -->
+        <div class="inline-flex items-center gap-3 px-4 py-1.5 border border-primary/40 bg-surface-container-high/40 backdrop-blur-md">
+          <div class="flex text-primary">
+            <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+          </div>
+          <span class="text-[11px] uppercase tracking-[0.25em] text-on-surface font-medium">Three Michelin Stars • Relais &amp; Châteaux</span>
+        </div>
+
+        <!-- Main Title -->
+        <h1 class="font-serif-luxury text-4xl sm:text-6xl lg:text-7xl text-on-surface tracking-tight max-w-4xl leading-[1.15]">
+          A Symphony of <span class="italic text-primary font-normal">Taste</span> &amp; Elegance
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-sm sm:text-base lg:text-lg text-on-surface-variant max-w-2xl font-light leading-relaxed">
+          Immerse your senses in a transcendent culinary journey where historic French terroir meets avant-garde alchemy, curated meticulously by Executive Chef Alexandre Vance.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row items-center gap-4 mt-2">
+          <a class="px-8 py-4 bg-primary text-on-primary text-xs uppercase tracking-widest font-semibold hover:bg-primary-fixed transition-all duration-300 shadow-2xl flex items-center gap-2" href="#menu">
+            <span>Explore Tasting Menus</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_downward</span>
+          </a>
+          <a class="px-8 py-4 bg-transparent border border-outline-variant text-on-surface text-xs uppercase tracking-widest hover:border-primary hover:bg-surface-container-high transition-all duration-300" href="#reservations">
+            Book an Evening
+          </a>
+        </div>
+
+        <!-- Quick Live Availability Bar -->
+        <div class="mt-8 w-full max-w-3xl bg-surface-container-low/90 backdrop-blur-md border border-outline-variant/40 p-4 shadow-2xl">
+          <form onsubmit="handleHeroQuickCheck(event)" class="grid grid-cols-1 sm:grid-cols-4 gap-3 text-left">
+            <div>
+              <label class="block text-[9px] uppercase tracking-widest text-on-surface-variant mb-1">Date</label>
+              <input id="hero-quick-date" type="date" class="w-full bg-surface border-b border-outline-variant text-xs text-on-surface py-1.5 px-2 focus:outline-none focus:border-primary"/>
+            </div>
+            <div>
+              <label class="block text-[9px] uppercase tracking-widest text-on-surface-variant mb-1">Guests</label>
+              <select id="hero-quick-guests" class="w-full bg-surface border-b border-outline-variant text-xs text-on-surface py-1.5 px-2 focus:outline-none focus:border-primary">
+                <option value="2">2 Guests</option>
+                <option value="4">4 Guests</option>
+                <option value="6">6 Guests</option>
+                <option value="8">8 Guests (Salon)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-[9px] uppercase tracking-widest text-on-surface-variant mb-1">Seating Time</label>
+              <select id="hero-quick-time" class="w-full bg-surface border-b border-outline-variant text-xs text-on-surface py-1.5 px-2 focus:outline-none focus:border-primary">
+                <option value="18:00 PM">18:00 PM (Early Dinner)</option>
+                <option value="19:30 PM" selected>19:30 PM (Prime)</option>
+                <option value="21:00 PM">21:00 PM (Late Degustation)</option>
+              </select>
+            </div>
+            <div class="flex items-end">
+              <button type="submit" class="w-full py-2 bg-primary text-on-primary text-xs uppercase tracking-wider font-semibold hover:bg-primary-fixed transition-colors">
+                Check Tables
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Decorative scroll indicator -->
+      <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
+        <span class="text-[9px] tracking-widest uppercase text-on-surface-variant">Scroll</span>
+        <div class="w-[1px] h-6 bg-primary animate-pulse"></div>
+      </div>
+    </section>
+
+    <!-- 2. Our Philosophy & The Chef -->
+    <section id="philosophy" class="max-w-7xl mx-auto px-6 lg:px-12 py-24 border-t border-outline-variant/20">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <div class="lg:col-span-6 flex flex-col gap-6">
+          <span class="text-[11px] uppercase tracking-[0.25em] text-primary font-medium flex items-center gap-2">
+            <span class="w-8 h-[1px] bg-primary"></span>
+            Culinary Philosophy
+          </span>
+          <h2 class="font-serif-luxury text-3xl sm:text-4xl lg:text-5xl text-on-surface leading-tight">
+            Historic French Heritage Meets Avant-Garde Mastery
+          </h2>
+          <p class="text-sm sm:text-base text-on-surface-variant leading-relaxed font-light">
+            At La Revi, every ingredient tells a poetic story of origin, micro-climate, and profound reverence for the land. We partner exclusively with biodynamic heirloom farms in the Loire Valley, private foraged truffle grounds in Périgord, and artisanal sustainable fisheries along the rugged coast of Brittany.
+          </p>
+          <p class="text-sm sm:text-base text-on-surface-variant leading-relaxed font-light">
+            Executive Chef Alexandre Vance treats each plate as an ephemeral canvas—fusing classical French sauces with subtle Japanese fermentation notes, orchestrating a ballet of temperature, texture, and emotional resonance.
+          </p>
+
+          <!-- Key Pillars -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4 border-t border-outline-variant/30">
+            <div>
+              <span class="text-2xl font-serif-luxury text-primary">3 Stars</span>
+              <p class="text-[11px] uppercase tracking-wider text-on-surface-variant mt-1 font-medium">Michelin Guide France</p>
+            </div>
+            <div>
+              <span class="text-2xl font-serif-luxury text-primary">2,500+</span>
+              <p class="text-[11px] uppercase tracking-wider text-on-surface-variant mt-1 font-medium">Grand Cru Cellar Vault</p>
+            </div>
+            <div>
+              <span class="text-2xl font-serif-luxury text-primary">12 Tables</span>
+              <p class="text-[11px] uppercase tracking-wider text-on-surface-variant mt-1 font-medium">Intimate Seating Per Night</p>
+            </div>
+          </div>
+
+          <!-- Chef Quote & Signature -->
+          <div class="pt-6 border-t border-outline-variant/20 flex items-center justify-between">
+            <div>
+              <p class="text-xs italic text-on-surface-variant">"Cooking is not merely transformation of matter; it is the distillation of memory and beauty."</p>
+              <span class="text-xs uppercase tracking-widest text-primary font-serif-luxury mt-1 block">— Alexandre Vance, Executive Chef</span>
+            </div>
+            <button onclick="openGiftCardModal()" class="px-4 py-2 border border-primary/40 text-primary text-[10px] uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-colors">
+              Experience Gift Vouchers
+            </button>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 relative">
+          <div class="grid grid-cols-12 gap-4">
+            <div class="col-span-8 image-zoom-container border border-outline-variant/30 shadow-2xl">
+              <div class="bg-cover bg-center h-[420px] w-full" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBJeZs_GUSwwBinTGETq8y2Z3bC75uYIhyyTQ0RrZVG089FSKt3eu9V-aSo68xNm43GasNrDAC9-bcSr7unrKVQMJ9Nk6o2WB1ezLVmBytQ-Oo8hTlVmeV5CQfYaLuaCet4OmFNkRdPo56lvTyj9I24zMtFtRNwOkBXiELcvVPhePlddNkOyZg1CuFvxeEvaj0OOzwS05oykMvidZAUmKMAC7qLjYViI92cvA9CRDih')"></div>
+            </div>
+            <div class="col-span-4 pt-10 image-zoom-container border border-outline-variant/30 shadow-2xl">
+              <div class="bg-cover bg-center h-[340px] w-full" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCk4InPkR4jKX8LTXGzM0DN6FLJvXjYQ6_YEDNpVypwO-76PMJpQfeX5_T-8bi7m1kbWe4y-jzzxfBNaZt7uOwyScmdlEkk5CAN1pozrnt_tq9MTfufsjjiG9F3VyeKq1O4yJhga6Y1BBmgvHpq4aXHGgWcI9xjZSnPDxkS00rN9qylwlVkGHx5HOHgW4-ZTO4I2ViLCIXW3k8lf8oHnk1FzvAhDMvkBfIYg-OhM82I')"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. Interactive Gastronomic Menu -->
+    <section id="menu" class="bg-surface-container-lowest py-24 border-y border-outline-variant/20">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+          <div class="flex flex-col gap-2">
+            <span class="text-[11px] uppercase tracking-[0.25em] text-primary font-medium">Seasonal Degustation</span>
+            <h2 class="font-serif-luxury text-3xl sm:text-4xl lg:text-5xl text-on-surface">Gastronomic Artistry</h2>
+            <p class="text-xs sm:text-sm text-on-surface-variant font-light max-w-xl">
+              Each dish reflects seasonal micro-harvests and rare artisanal imports. Click any dish for flavor notes, sourcing provenance, and sommelier vintage pairings.
+            </p>
+          </div>
+          
+          <div class="flex items-center gap-3">
+            <a href="#reservations" class="text-xs uppercase tracking-widest text-primary hover:underline flex items-center gap-2">
+              <span>Reserve Tasting Menu</span>
+              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="flex flex-wrap gap-2 mb-10 pb-4 border-b border-outline-variant/30">
+          <button onclick="filterMenu('all', this)" class="menu-tab-btn active px-4 py-2 border border-outline-variant/40 text-xs uppercase tracking-wider text-on-surface transition-all">
+            All Creations
+          </button>
+          <button onclick="filterMenu('starters', this)" class="menu-tab-btn px-4 py-2 border border-outline-variant/40 text-xs uppercase tracking-wider text-on-surface transition-all">
+            Starters (Entrées)
+          </button>
+          <button onclick="filterMenu('mains', this)" class="menu-tab-btn px-4 py-2 border border-outline-variant/40 text-xs uppercase tracking-wider text-on-surface transition-all">
+            Mains (Plats)
+          </button>
+          <button onclick="filterMenu('desserts', this)" class="menu-tab-btn px-4 py-2 border border-outline-variant/40 text-xs uppercase tracking-wider text-on-surface transition-all">
+            Desserts &amp; Fromages
+          </button>
+          <button onclick="filterMenu('pairings', this)" class="menu-tab-btn px-4 py-2 border border-outline-variant/40 text-xs uppercase tracking-wider text-on-surface transition-all">
+            Cellar &amp; Cocktails
+          </button>
+        </div>
+
+        <!-- Dishes Grid -->
+        <div id="menu-items-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Dynamically populated by app.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. 10-Course Tasting Journey Experience -->
+    <section id="journey" class="py-24 max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        
+        <div class="lg:col-span-5 flex flex-col gap-6 sticky top-28">
+          <span class="text-[11px] uppercase tracking-[0.25em] text-primary font-medium">The Grand Degustation</span>
+          <h2 class="font-serif-luxury text-3xl sm:text-4xl lg:text-5xl text-on-surface leading-tight">
+            A 10-Course Symphony of Senses
+          </h2>
+          <p class="text-sm text-on-surface-variant font-light leading-relaxed">
+            Our flagship Grand Heritage Degustation is an uninterrupted three-hour sensory odyssey. Each course is engineered to harmonize with rare Grand Cru vintages poured at peak cellar maturity.
+          </p>
+
+          <div class="bg-surface-container-high/60 border border-outline-variant/40 p-6 space-y-4">
+            <div class="flex justify-between items-center border-b border-outline-variant/30 pb-3">
+              <span class="text-xs uppercase tracking-wider text-on-surface-variant">Tasting Menu</span>
+              <span class="font-serif-luxury text-xl text-primary font-semibold">$285 <span class="text-xs font-sans text-on-surface-variant font-light">/ guest</span></span>
+            </div>
+            <div class="flex justify-between items-center border-b border-outline-variant/30 pb-3">
+              <span class="text-xs uppercase tracking-wider text-on-surface-variant">Prestige Wine Flight</span>
+              <span class="font-serif-luxury text-xl text-primary font-semibold">+$140 <span class="text-xs font-sans text-on-surface-variant font-light">/ guest</span></span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-xs uppercase tracking-wider text-on-surface-variant">Duration</span>
+              <span class="text-xs text-on-surface">Approximately 3.5 Hours</span>
+            </div>
+          </div>
+
+          <a href="#reservations" class="w-full py-3.5 bg-primary text-on-primary text-center text-xs uppercase tracking-widest font-semibold hover:bg-primary-fixed transition-colors">
+            Reserve The 10-Course Experience
+          </a>
+        </div>
+
+        <div class="lg:col-span-7 bg-surface-container-low border border-outline-variant/30 p-8 md:p-12 shadow-2xl">
+          <div id="tasting-journey-steps" class="flex flex-col">
+            <!-- Dynamically populated by app.js -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. Wine Cellar & Sommelier's Vault -->
+    <section id="cellar" class="bg-surface-container-lowest py-24 border-y border-outline-variant/20">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-6 image-zoom-container border border-outline-variant/30 shadow-2xl">
+            <div class="bg-cover bg-center h-[480px] w-full" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD80PkSbQya8rLf5UrhqePqc9VKoWPoqPNQcPrM7gX50Lhs3DD4pKMAf9OJheWDdaPSr0eGm_3cGEtJDBjNIlRWVaTxjPw7StwErmHrVQs66J1bpLZpkfp3eEDIzKZTYE76oz7R6634PNNbVE7PYkK7veqcI9KTZq01ocpUC8lnts-GrGofCQsPjByIwZvQTo5CFvhQAR7h8kJbO3bbDDnmUcMUJVU6Nt4hkXkSC-Ty')"></div>
+          </div>
+
+          <div class="lg:col-span-6 flex flex-col gap-6">
+            <span class="text-[11px] uppercase tracking-[0.25em] text-primary font-medium">Head Sommelier Curated</span>
+            <h2 class="font-serif-luxury text-3xl sm:text-4xl lg:text-5xl text-on-surface leading-tight">
+              A 2,500-Bottle Sanctuary of Rare Vintages
+            </h2>
+            <p class="text-sm sm:text-base text-on-surface-variant font-light leading-relaxed">
+              Supervised by Master Sommelier Éléonore Mercier, our subterranean vault features unbroken vertical collections of Domaine de la Romanée-Conti, Château d'Yquem dating back to 1945, and rare grower Champagnes from premier biodynamic parcels.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <div class="p-4 bg-surface-container-high/40 border border-outline-variant/30">
+                <h4 class="font-serif-luxury text-base text-on-surface">Grand Cru Coravin Flight</h4>
+                <p class="text-xs text-on-surface-variant mt-1">Taste legendary premier crus by the glass without pulling the cork.</p>
+              </div>
+              <div class="p-4 bg-surface-container-high/40 border border-outline-variant/30">
+                <h4 class="font-serif-luxury text-base text-on-surface">Rare Botanical Infusions</h4>
+                <p class="text-xs text-on-surface-variant mt-1">Complex zero-proof pairings brewed from rare Himalayan and Kyoto teas.</p>
+              </div>
+            </div>
+
+            <div class="pt-4 flex flex-col sm:flex-row gap-4">
+              <a href="#reservations" class="px-6 py-3 bg-primary text-on-primary text-xs uppercase tracking-widest font-semibold hover:bg-primary-fixed transition-colors text-center">
+                Reserve Sommelier Table
+              </a>
+              <button onclick="showToast('Cellar archive PDF catalog sent to concierge email request.', 'gold')" class="px-6 py-3 border border-outline-variant text-xs uppercase tracking-widest text-on-surface hover:border-primary transition-colors">
+                Request Cellar Book (PDF)
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Visual Atmosphere & Gallery -->
+    <section class="py-24 max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="text-center flex flex-col items-center gap-3 mb-16">
+        <span class="text-[11px] uppercase tracking-[0.25em] text-primary font-medium">Atmospheric Sanctuary</span>
+        <h2 class="font-serif-luxury text-3xl sm:text-4xl lg:text-5xl text-on-surface">The La Revi Experience</h2>
+        <p class="text-xs sm:text-sm text-on-surface-variant font-light max-w-xl">
+          Dark velvet booths, polished marble, amber warmth, and razor-sharp architectural restraint designed to elevate every culinary moment.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+        
+        <div class="md:col-span-8 h-[420px] image-zoom-container border border-outline-variant/30 relative cursor-pointer group" onclick="openGalleryModal('https://lh3.googleusercontent.com/aida-public/AB6AXuD-woEC-f7LtFQFxd_F7JY2HZFyOOkftTbQNbaG-TxEJf8TZ7Gj3cbr9_v0aO5B1xqKS6xDuYngm0QybcAhv6NWvfn2dvPb0Fmx2kRkeV3HwKXUoAjDdZLSbF8qDyTKYhrIFx9stka66oJl4TNbkDPpU8vbH0sXqg2xFg7TMvkQzJLp50DHWY5Sj8fRuyGuDlT7Tzi4PRn3o3kLtSVMoX0hFGhdR9d12bwTk6Zuo0mI', 'The Main Dining Room at La Revi')">
+          <div class="bg-cover bg-center w-full h-full" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD-woEC-f7LtFQFxd_F7JY2HZFyOOkftTbQNbaG-TxEJf8TZ7Gj3cbr9_v0aO5B1xqKS6xDuYngm0QybcAhv6NWvfn2dvPb0Fmx2kRkeV3HwKXUoAjDdZLSbF8qDyTKYhrIFx9stka66oJl4TNbkDPpU8vbH0sXqg2xFg7TMvkQzJLp50DHWY5Sj8fRuyGuDlT7Tzi4PRn3o3kLtSVMoX0hFGhdR9d12bwTk6Zuo0mI')"></div>
+          <div class="absolute bottom-4 left-4 bg-surface/90 px-3 py-1 text-xs text-on-surface uppercase tracking-widest border border-outline-variant/30 flex items-center gap-2">
+            <span class="material-symbols-outlined text-[14px] text-primary">visibility</span>
+            <span>Main Dining Room</span>
+          </div>
+        </div>
+
+        <div class="md:col-span-4 h-[420px] image-zoom-container border border-outline-variant/30 relative cursor-pointer group" onclick="openGalleryModal('https://lh3.googleusercontent.com/aida-public/AB6AXuBdM3Ygu38ikwofU5NzuQN4DfFdQSR5opQOStj3Wg8Vq_l3DtXsJ57oJYy7pJzrqSAKGBDA-atHdm6EqufxOkDUwAFeHhA4nDXgmVXGRwkPzyxBmafe_4GXYCsk8SHhVZ6TiTnnBR-l5lvL9OmZDp_7j6Ot6IrzQCrT7vfGhpX5_5SCszGfqOBoJxGiAEu-ryJuYL2Bb5iRWxHEEcyz0fAjUmJXJml-DTcix5rGN7gf', 'Le Salon Privé VIP Atrium')">
+          <div class="bg-cover bg-center w-full h-full" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBdM3Ygu38ikwofU5NzuQN4DfFdQSR5opQOStj3Wg8Vq_l3DtXsJ57oJYy7pJzrqSAKGBDA-atHdm6EqufxOkDUwAFeHhA4nDXgmVXGRwkPzyxBmafe_4GXYCsk8SHhVZ6TiTnnBR-l5lvL9OmZDp_7j6Ot6IrzQCrT7vfGhpX5_5SCszGfqOBoJxGiAEu-ryJuYL2Bb5iRWxHEEcyz0fAjUmJXJml-DTcix5rGN7gf')"></div>
+          <div class="absolute bottom-4 left-4 bg-surface/90 px-3 py-1 text-xs text-on-surface uppercase tracking-widest border border-outline-variant/30 flex items-center gap-2">
+            <span class="material-symbols-outlined text-[14px] text-primary">visibility</span>
+            <span>Le Salon Privé</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 7. Private Dining & Bespoke Event Calculator -->
+    <section id="private-dining" class="bg-surface-container-lowest py-24 border-t border-outline-variant/20">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          
+          <div class="lg:col-span-5 flex flex-col gap-6">
+            <span class="text-[11px] uppercase tracking-[0.25em] text-primary font-medium">Bespoke Celebrations</span>
+            <h2 class="font-serif-luxury text-3xl sm:text-4xl lg:text-5xl text-on-surface leading-tight">
+              Exclusive Salons &amp; Buyouts
+            </h2>
+            <p class="text-sm text-on-surface-variant font-light leading-relaxed">
+              Host intimate state dinners, landmark celebrations, or corporate symposiums in our discreet VIP salons with dedicated sommeliers, bespoke printed menus, and discreet service.
+            </p>
+            
+            <div class="space-y-4 pt-2">
+              <div class="border border-outline-variant/30 p-4 bg-surface-container-high/40">
+                <span class="text-xs uppercase tracking-widest text-primary font-medium">Le Salon Privé</span>
+                <p class="text-xs text-on-surface-variant mt-1">Accommodates up to 16 seated guests with a private foyer and wine cellar portal.</p>
+              </div>
+              <div class="border border-outline-variant/30 p-4 bg-surface-container-high/40">
+                <span class="text-xs uppercase tracking-widest text-primary font-medium">The Glass Atrium Buyout</span>
+                <p class="text-xs text-on-surface-variant mt-1">Accommodates up to 40 seated guests for grand formal banquet experiences.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Event Proposal Calculator -->
+          <div class="lg:col-span-7 bg-surface-container-low border border-primary/30 p-8 md:p-12 shadow-2xl">
+            <div class="border-b border-outline-variant/30 pb-4 mb-6 flex justify-between items-center">
+              <div>
+                <span class="text-[10px] uppercase tracking-widest text-primary font-semibold">Interactive Planner</span>
+                <h3 class="font-serif-luxury text-2xl text-on-surface">Private Dining Proposal Calculator</h3>
+              </div>
+              <span class="material-symbols-outlined text-primary text-[28px]">calculate</span>
+            </div>
+
+            <div class="space-y-6">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-[10px] uppercase tracking-widest text-on-surface-variant mb-2">Private Salon Choice</label>
+                  <select id="event-space-select" onchange="calculatePrivateEventProposal()" class="w-full bg-surface border-b border-outline-variant text-xs text-on-surface py-2.5 px-3 focus:outline-none focus:border-primary">
+                    <option value="salon">Le Salon Privé (Up to 16 Guests)</option>
+                    <option value="atrium">The Glass Atrium (Up to 40 Guests)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-[10px] uppercase tracking-widest text-on-surface-variant mb-2">Number of Honored Guests</label>
+                  <input id="event-guests-input" type="number" min="4" max="40" value="12" oninput="calculatePrivateEventProposal()" class="w-full bg-surface border-b border-outline-variant text-xs text-on-surface py-2.5 px-3 focus:outline-none focus:border-primary"/>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-[10px] uppercase tracking-widest text-on-surface-variant mb-2">Culinary Tier</label>
+                  <select id="event-tier-select" onchange="calculatePrivateEventProposal()" class="w-full bg-surface border-b border-outline-variant text-xs text-on-surface py-2.5 px-3 focus:outline-none focus:border-primary">
+                    <option value="discovery">Discovery Degustation (7 Courses)</option>
+                    <option value="heritage" selected>Grand Heritage (10 Courses)</option>
+                    <option value="imperial">Imperial Truffle &amp; Caviar Gala</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-[10px] uppercase tracking-widest text-on-surface-variant mb-2">Sommelier Pairing Tier</label>
+                  <select id="event-pairing-select" onchange="calculatePrivateEventProposal()" class="w-full bg-surface border-b border-outline-variant text-xs text-on-surface py-2.5 px-3 focus:outline-none focus:border-primary">
+                    <option value="none">Beverages À La Carte</option>
+                    <option value="classic">Classic Terroir Wine Pairing</option>
+                    <option value="prestige" selected>Prestige Grand Cru Vault Pairing</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Calculation Output Card -->
+              <div class="bg-surface-container-high/60 border border-outline-variant/30 p-6">
+                <div class="flex justify-between items-baseline mb-2">
+                  <span class="text-xs uppercase tracking-wider text-on-surface-variant">Estimated Event Package</span>
+                  <span id="event-calc-total" class="font-serif-luxury text-3xl text-primary font-bold">$6,220</span>
+                </div>
+                <div class="flex justify-between items-center text-xs text-primary/90 font-medium">
+                  <span id="event-calc-per-person">$518 / guest</span>
+                  <span class="text-[10px] uppercase tracking-widest text-on-surface-variant">All Inclusive of Service</span>
+                </div>
+                <p id="event-calc-breakdown" class="text-xs text-on-surface-variant mt-3 pt-3 border-t border-outline-variant/20 italic font-light">
+                  12 Guests • Le Salon Privé • Includes salon exclusivity &amp; sommelier concierge.
+                </p>
+              </div>
+
+              <button onclick="showToast('Event proposal saved. Directing to booking concierge...', 'gold'); document.getElementById('reservations').scrollIntoView({behavior: 'smooth'})" class="w-full py-4 bg-primary text-on-primary text-xs uppercase tracking-widest font-semibold hover:bg-primary-fixed transition-colors text-center">
+                Request This Private Salon Experience
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Critical Acclaim & Press -->
+    <section class="bg-surface-container py-24 border-y border-outline-variant/20">
+      <div class="max-w-5xl mx-auto px-6 text-center flex flex-col items-center gap-8">
+        <span class="text-[11px] uppercase tracking-[0.25em] text-primary font-medium">Critical Acclaim</span>
+        
+        <div class="flex gap-1 text-primary">
+          <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+        </div>
+
+        <blockquote class="font-serif-luxury text-2xl sm:text-3xl lg:text-4xl text-on-surface italic max-w-4xl leading-relaxed font-light">
+          "La Revi delivers a masterclass in modern gastronomy. Every course is an exquisite revelation of flavor and artistic vision that lingers in memory long after the evening ends."
+        </blockquote>
+
+        <div class="flex flex-col items-center gap-1">
+          <span class="font-serif-luxury text-lg text-on-surface not-italic">Michelin Guide France Inspector Review</span>
+          <span class="text-[11px] uppercase tracking-widest text-primary font-medium">Three Michelin Stars 2024</span>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-8 border-t border-outline-variant/30 w-full text-center">
+          <div>
+            <span class="text-xs uppercase tracking-widest text-on-surface font-semibold">Le Figaro</span>
+            <p class="text-[10px] text-on-surface-variant mt-1">"Flawless Parisian elegance"</p>
+          </div>
+          <div>
+            <span class="text-xs uppercase tracking-widest text-on-surface font-semibold">The New York Times</span>
+            <p class="text-[10px] text-on-surface-variant mt-1">"Top 10 Global Dining Destinations"</p>
+          </div>
+          <div>
+            <span class="text-xs uppercase tracking-widest text-on-surface font-semibold">Wine Spectator</span>
+            <p class="text-[10px] text-on-surface-variant mt-1">Grand Award 2024</p>
+          </div>
+          <div>
+            <span class="text-xs uppercase tracking-widest text-on-surface font-semibold">World's 50 Best</span>
+            <p class="text-[10px] text-on-surface-variant mt-1">Discovery Choice</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Interactive Table Reservation Engine (Fully Functional) -->
+    <section id="reservations" class="py-24 max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 bg-surface-container-low p-8 lg:p-16 border border-outline-variant/40 shadow-2xl">
+        
+        <!-- Left Column: Guidelines & Contact Details -->
+        <div class="lg:col-span-5 flex flex-col justify-between gap-8">
+          <div class="flex flex-col gap-4">
+            <span class="text-[11px] uppercase tracking-[0.25em] text-primary font-medium">Secure Your Table</span>
+            <h2 class="font-serif-luxury text-3xl sm:text-4xl text-on-surface">Reservations &amp; Dining Concierge</h2>
+            <p class="text-xs sm:text-sm text-on-surface-variant font-light leading-relaxed">
+              We recommend reserving several weeks in advance. Tables are released 60 days ahead at midnight CET. For parties larger than 8, please select our Private Salon option.
+            </p>
+          </div>
+
+          <div class="flex flex-col gap-6 pt-6 border-t border-outline-variant/20">
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-primary text-[24px]">location_on</span>
+              <div>
+                <h4 class="font-serif-luxury text-sm text-on-surface">Paris Flagship</h4>
+                <p class="text-xs text-on-surface-variant mt-0.5">452 Boulevard Saint-Germain, 75007 Paris, France</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-primary text-[24px]">schedule</span>
+              <div>
+                <h4 class="font-serif-luxury text-sm text-on-surface">Hours of Service</h4>
+                <p class="text-xs text-on-surface-variant mt-0.5">Tuesday – Sunday: 17:30 PM – 23:30 PM (Closed Mondays)</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-primary text-[24px]">dry_cleaning</span>
+              <div>
+                <h4 class="font-serif-luxury text-sm text-on-surface">Dress Code</h4>
+                <p class="text-xs text-on-surface-variant mt-0.5">Elegantly attired. Jackets requested for gentlemen. No athletic wear.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-primary text-[24px]">call</span>
+              <div>
+                <h4 class="font-serif-luxury text-sm text-on-surface">Direct Concierge</h4>
+                <p class="text-xs text-on-surface-variant mt-0.5">+33 (0)1 42 68 55 00 • concierge@larevi-restaurant.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Booking Form -->
+        <div class="lg:col-span-7 flex flex-col justify-center">
+          <form onsubmit="handleReservationSubmit(event)" class="flex flex-col gap-6">
+            
+            <div class="border-b border-outline-variant/30 pb-2">
+              <span class="text-xs uppercase tracking-widest text-primary font-semibold">Step 1: Dining Details</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div class="flex flex-col gap-1.5">
+                <label class="text-[10px] uppercase tracking-widest text-on-surface-variant">Flagship Location</label>
+                <select id="res-location" class="bg-surface px-3 py-2.5 text-xs text-on-surface focus:outline-none focus:ring-1 focus:ring-primary border-b border-outline-variant transition-all">
+                  <option>Paris (Saint-Germain)</option>
+                  <option>New York (Madison Ave)</option>
+                </select>
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label class="text-[10px] uppercase tracking-widest text-on-surface-variant">Party Size</label>
+                <select id="res-guests" onchange="updateReservationPriceSummary()" class="bg-surface px-3 py-2.5 text-xs text-on-surface focus:outline-none focus:ring-1 focus:ring-primary border-b border-outline-variant transition-all">
+                  <option value="1">1 Guest</option>
+                  <option value="2" selected>2 Guests</option>
+                  <option value="4">4 Guests</option>
+                  <option value="6">6 Guests</option>
+                  <option value="8">8 Guests (Salon Privé)</option>
+                  <option value="12">12 Guests (VIP Salon)</option>
+                </select>
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label class="text-[10px] uppercase tracking-widest text-on-surface-variant">Seating Ambience</label>
+                <select id="res-zone" class="bg-surface px-3 py-2.5 text-xs text-on-surface focus:outline-none focus:ring-1 focus:ring-primary border-b border-outline-variant transition-all">
+                  <option>Main Dining Room</option>
+                  <option>Chef's Counter (Kitchen Front)</option>
+                  <option>Le Salon Privé</option>
+                  <option>Terrace Atrium</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Date & Time Slot Selector -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="flex flex-col gap-1.5">
+                <label class="text-[10px] uppercase tracking-widest text-on-surface-variant">Date</label>
+                <input id="res-date" type="date" required class="bg-surface px-3 py-2.5 text-xs text-on-surface focus:outline-none focus:ring-1 focus:ring-primary border-b border-outline-variant transition-all"/>
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label class="text-[10px] uppercase tracking-widest text-on-surface-variant">Select Available Seating Slot</label>
+                <div class="grid grid-cols-3 gap-2">
+                  <button type="button" onclick="selectTimeSlot('18:00 PM', this)" class="time-slot-btn py-2 text-xs border border-outline-variant/30 text-on-surface hover:border-primary transition-all text-center">18:00</button>
+                  <button type="button" onclick="selectTimeSlot('19:30 PM', this)" class="time-slot-btn py-2 text-xs border border-primary bg-primary text-on-primary font-semibold transition-all text-center">19:30</button>
+                  <button type="button" onclick="selectTimeSlot('21:00 PM', this)" class="time-slot-btn py-2 text-xs border border-outline-variant/30 text-on-surface hover:border-primary transition-all text-center">21:00</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Menu Choice & Luxury Add-ons -->
+            <div class="border-b border-outline-variant/30 pb-2 pt-2">
+              <span class="text-xs uppercase tracking-widest text-primary font-semibold">Step 2: Gastronomic Curation</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="flex flex-col gap-1.5">
+                <label class="text-[10px] uppercase tracking-widest text-on-surface-variant">Tasting Menu Tier</label>
+                <select id="res-experience" onchange="updateReservationPriceSummary()" class="bg-surface px-3 py-2.5 text-xs text-on-surface focus:outline-none focus:ring-1 focus:ring-primary border-b border-outline-variant transition-all">
+                  <option value="heritage" selected>Grand Heritage Tasting (10 Courses) — $285</option>
+                  <option value="discovery">Seasonal Discovery Tasting (7 Courses) — $195</option>
+                  <option value="alacarte">À La Carte Dining Experience</option>
+                </select>
+              </div>
+              
+              <div class="flex flex-col justify-end gap-2 text-xs">
+                <label class="flex items-center gap-2 cursor-pointer text-on-surface-variant hover:text-on-surface">
+                  <input id="res-addon-wine" type="checkbox" onchange="updateReservationPriceSummary()" class="accent-primary"/>
+                  <span>Add Prestige Sommelier Wine Flight (+$140/guest)</span>
+                </label>
+                <label class="flex items-center gap-2 cursor-pointer text-on-surface-variant hover:text-on-surface">
+                  <input id="res-addon-caviar" type="checkbox" onchange="updateReservationPriceSummary()" class="accent-primary"/>
+                  <span>Add Oscietra Royal Caviar Service (+$85/guest)</span>
+                </label>
+                <label class="flex items-center gap-2 cursor-pointer text-on-surface-variant hover:text-on-surface">
+                  <input id="res-addon-celeb" type="checkbox" onchange="updateReservationPriceSummary()" class="accent-primary"/>
+                  <span>Anniversary / Celebration Cake &amp; Vintage Toast (+$120)</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Guest Information -->
+            <div class="border-b border-outline-variant/30 pb-2 pt-2">
+              <span class="text-xs uppercase tracking-widest text-primary font-semibold">Step 3: Primary Guest Information</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-4">
+              <div class="sm:col-span-3 flex flex-col gap-1.5">
+                <label class="text-[10px] uppercase tracking-widest text-on-surface-variant">Honorific</label>
+                <select id="res-salutation" class="bg-surface px-3 py-2.5 text-xs text-on-surface focus:outline-none focus:ring-1 focus:ring-primary border-b border-outline-variant transition-all">
+                  <option>Mr.</option>
+                  <option>Mrs.</option>
+                  <option>Ms.</option>
+                  <option>Dr.</option>
+                  <option>Lord</option>
+                  <option>Lady</option>
+                </select>
+              </div>
+              <div class="sm:col-span-9 flex flex-col gap-1.5">
+                <label class="text-[10px] uppercase tracking-widest text-on-surface-variant">Full Name</label>
+                <input id="res-name" type="text" required placeholder="Clarissa Vance" class="bg-surface px-3 py-2.5 text-xs text-on-surface focus:outline-none focus:ring-1 focus:ring-primary border-b border-outline-variant transition-all"/>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="flex flex-col gap-1.5">
+                <label class="text-[10px] uppercase tracking-widest text-on-surface-variant">Email (For Confirmation Dispatch)</label>
+                <input id="res-email" type="email" required placeholder="clarissa@estate.com" class="bg-surface px-3 py-2.5 text-xs text-on-surface focus:outline-none focus:ring-1 focus:ring-primary border-b border-outline-variant transition-all"/>
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label class="text-[10px] uppercase tracking-widest text-on-surface-variant">Telephone (SMS Concierge)</label>
+                <input id="res-phone" type="tel" required placeholder="+33 6 12 34 56 78" class="bg-surface px-3 py-2.5 text-xs text-on-surface focus:outline-none focus:ring-1 focus:ring-primary border-b border-outline-variant transition-all"/>
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-1.5">
+              <label class="text-[10px] uppercase tracking-widest text-on-surface-variant">Dietary Requirements &amp; Special Occasions</label>
+              <textarea id="res-special-requests" rows="2" placeholder="Anniversary celebration, pescatarian preferences, severe shellfish allergy..." class="bg-surface px-3 py-2.5 text-xs text-on-surface focus:outline-none focus:ring-1 focus:ring-primary border-b border-outline-variant transition-all"></textarea>
+            </div>
+
+            <!-- Price Summary Preview -->
+            <div class="bg-surface-container-high/60 border border-outline-variant/30 p-4 flex justify-between items-center text-xs">
+              <div>
+                <span class="text-[10px] uppercase tracking-widest text-on-surface-variant block">Estimated Experience Total</span>
+                <span id="res-summary-details" class="text-on-surface-variant italic font-light">2 Guests • Grand Heritage Tasting</span>
+              </div>
+              <span id="res-summary-total" class="font-serif-luxury text-2xl text-primary font-bold">$570</span>
+            </div>
+
+            <button type="submit" class="w-full py-4 bg-primary text-on-primary text-xs uppercase tracking-widest font-semibold hover:bg-primary-fixed transition-all duration-300 shadow-2xl flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined text-[18px]">verified</span>
+              <span>Confirm Table Reservation</span>
+            </button>
+
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 10. Concierge FAQ & Location -->
+    <section id="contact" class="bg-surface-container-lowest py-24 border-t border-outline-variant/20">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+          
+          <!-- Concierge Message Form -->
+          <div class="lg:col-span-5 flex flex-col gap-6">
+            <span class="text-[11px] uppercase tracking-[0.25em] text-primary font-medium">Direct Inquiries</span>
+            <h2 class="font-serif-luxury text-3xl sm:text-4xl text-on-surface">Concierge Dispatch</h2>
+            <p class="text-xs sm:text-sm text-on-surface-variant font-light leading-relaxed">
+              For cellar acquisitions, media inquiries, or private aviation / hotel transfer arrangements, our Chief Concierge will respond personally.
+            </p>
+
+            <form onsubmit="handleContactForm(event)" class="space-y-4 pt-2">
+              <input type="text" required placeholder="Your Name" class="w-full bg-surface border-b border-outline-variant text-xs text-on-surface py-2.5 px-3 focus:outline-none focus:border-primary"/>
+              <input type="email" required placeholder="Your Email Address" class="w-full bg-surface border-b border-outline-variant text-xs text-on-surface py-2.5 px-3 focus:outline-none focus:border-primary"/>
+              <textarea rows="3" required placeholder="How may our concierge assist your evening?" class="w-full bg-surface border-b border-outline-variant text-xs text-on-surface py-2.5 px-3 focus:outline-none focus:border-primary"></textarea>
+              <button type="submit" class="w-full py-3 border border-outline-variant text-xs uppercase tracking-widest text-on-surface hover:border-primary hover:text-primary transition-colors">
+                Transmit Message
+              </button>
+            </form>
+          </div>
+
+          <!-- FAQ Accordion -->
+          <div class="lg:col-span-7 flex flex-col gap-4">
+            <span class="text-[11px] uppercase tracking-[0.25em] text-primary font-medium">Dining Etiquette &amp; Policies</span>
+            <h3 class="font-serif-luxury text-2xl text-on-surface mb-2">Frequently Addressed Inquiries</h3>
+
+            <div class="border border-outline-variant/30 bg-surface-container-low">
+              <button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left flex justify-between items-center text-xs uppercase tracking-wider text-on-surface font-medium hover:text-primary transition-colors">
+                <span>What is the dress code for La Revi?</span>
+                <span class="material-symbols-outlined text-[18px] transition-transform">expand_more</span>
+              </button>
+              <div class="px-6 pb-4 text-xs text-on-surface-variant font-light leading-relaxed border-t border-outline-variant/20 pt-3 hidden">
+                We maintain an elegant fine-dining atmosphere. Jackets are recommended for gentlemen; ties are optional. We respectfully decline entry to guests wearing sportswear, athletic shoes, or casual beach attire.
+              </div>
+            </div>
+
+            <div class="border border-outline-variant/30 bg-surface-container-low">
+              <button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left flex justify-between items-center text-xs uppercase tracking-wider text-on-surface font-medium hover:text-primary transition-colors">
+                <span>Can severe allergies or dietary preferences be accommodated?</span>
+                <span class="material-symbols-outlined text-[18px] transition-transform">expand_more</span>
+              </button>
+              <div class="px-6 pb-4 text-xs text-on-surface-variant font-light leading-relaxed border-t border-outline-variant/20 pt-3 hidden">
+                With at least 48 hours advance notice, Chef Alexandre Vance and our kitchen brigade curate bespoke multi-course menus for vegetarian, pescatarian, gluten-free, and specific allergy profiles.
+              </div>
+            </div>
+
+            <div class="border border-outline-variant/30 bg-surface-container-low">
+              <button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left flex justify-between items-center text-xs uppercase tracking-wider text-on-surface font-medium hover:text-primary transition-colors">
+                <span>What is your cancellation and deposit policy?</span>
+                <span class="material-symbols-outlined text-[18px] transition-transform">expand_more</span>
+              </button>
+              <div class="px-6 pb-4 text-xs text-on-surface-variant font-light leading-relaxed border-t border-outline-variant/20 pt-3 hidden">
+                Cancellations made at least 48 hours prior to the reservation incur zero penalty. Due to the rare perishable sourcing of our tasting courses, cancellations within 48 hours may be subject to a €100 per person late fee unless rebooked.
+              </div>
+            </div>
+
+            <div class="border border-outline-variant/30 bg-surface-container-low">
+              <button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left flex justify-between items-center text-xs uppercase tracking-wider text-on-surface font-medium hover:text-primary transition-colors">
+                <span>Is valet parking and private chauffeur arrival available?</span>
+                <span class="material-symbols-outlined text-[18px] transition-transform">expand_more</span>
+              </button>
+              <div class="px-6 pb-4 text-xs text-on-surface-variant font-light leading-relaxed border-t border-outline-variant/20 pt-3 hidden">
+                Yes. Complimentary white-glove valet parking is provided directly in front of 452 Boulevard Saint-Germain and 742 Madison Avenue starting at 17:00 daily.
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full bg-deep-charcoal border-t border-outline-variant/30 py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col gap-12">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 justify-between items-start pb-12 border-b border-outline-variant/20">
+        
+        <div class="md:col-span-4 flex flex-col gap-4">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 border border-primary flex items-center justify-center">
+              <span class="font-serif-luxury text-primary text-base font-bold">LR</span>
+            </div>
+            <span class="font-serif-luxury tracking-widest uppercase text-on-surface text-lg">La Revi</span>
+          </div>
+          <p class="text-xs text-on-surface-variant font-light leading-relaxed">
+            Three Michelin Stars. A gastronomic sanctuary of taste, silence, and architectural beauty.
+          </p>
+          <div class="flex gap-4 text-xs uppercase tracking-widest text-on-surface-variant pt-2">
+            <a href="#" class="hover:text-primary transition-colors">Instagram</a>
+            <a href="#" class="hover:text-primary transition-colors">Michelin Guide</a>
+            <a href="#" class="hover:text-primary transition-colors">Relais &amp; Châteaux</a>
+          </div>
+        </div>
+
+        <div class="md:col-span-4 flex flex-col gap-2">
+          <span class="text-xs uppercase tracking-widest text-primary font-medium">Flagship Locations</span>
+          <p class="text-xs text-on-surface mt-2 font-medium">Paris Salon</p>
+          <p class="text-xs text-on-surface-variant font-light">452 Boulevard Saint-Germain, 75007 Paris</p>
+          
+          <p class="text-xs text-on-surface mt-3 font-medium">New York Salon</p>
+          <p class="text-xs text-on-surface-variant font-light">742 Madison Avenue, New York, NY 10065</p>
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="md:col-span-4 flex flex-col gap-3">
+          <span class="text-xs uppercase tracking-widest text-primary font-medium">The Gazette Privée</span>
+          <p class="text-xs text-on-surface-variant font-light">
+            Receive seasonal menu announcements and private cellar release invitations.
+          </p>
+          <form onsubmit="handleNewsletter(event)" class="flex gap-2 mt-2">
+            <input type="email" required placeholder="Enter email address" class="bg-surface px-3 py-2 text-xs text-on-surface border border-outline-variant focus:outline-none focus:border-primary flex-1"/>
+            <button type="submit" class="px-4 py-2 bg-primary text-on-primary text-xs uppercase tracking-wider font-semibold hover:bg-primary-fixed transition-colors">
+              Join
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="flex flex-col sm:flex-row justify-between items-center text-xs text-on-surface-variant font-light gap-4">
+        <span>&copy; 2026 La Revi Restaurant Group. All rights reserved.</span>
+        <div class="flex gap-6">
+          <button onclick="openBookingLookupModal()" class="hover:underline">Lookup Reservation</button>
+          <button onclick="openGiftCardModal()" class="hover:underline">Gift Certificates</button>
+          <a href="#" class="hover:underline">Privacy Policy</a>
+          <a href="#" class="hover:underline">Terms of Service</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- MODALS -->
+
+  <!-- 1. Dish Detail Modal -->
+  <div id="dish-detail-modal" class="fixed inset-0 z-50 bg-black/85 modal-backdrop hidden items-center justify-center p-4">
+    <div id="dish-modal-content" class="w-full max-w-4xl">
+      <!-- Injected by app.js -->
+    </div>
+  </div>
+
+  <!-- 2. Booking Confirmation Modal -->
+  <div id="booking-confirmation-modal" class="fixed inset-0 z-50 bg-black/85 modal-backdrop hidden items-center justify-center p-4 overflow-y-auto">
+    <div id="booking-confirmation-content" class="w-full max-w-2xl my-8">
+      <!-- Injected by app.js -->
+    </div>
+  </div>
+
+  <!-- 3. Reservation Lookup Modal -->
+  <div id="booking-lookup-modal" class="fixed inset-0 z-50 bg-black/85 modal-backdrop hidden items-center justify-center p-4">
+    <div class="bg-surface-container-low border border-outline-variant p-8 max-w-lg w-full shadow-2xl relative">
+      <button onclick="closeBookingLookupModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-on-surface">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+      <span class="text-[10px] uppercase tracking-widest text-primary font-medium">Guest Services</span>
+      <h3 class="font-serif-luxury text-2xl text-on-surface mt-1 mb-4">Find Your Table Reservation</h3>
+      
+      <div class="flex gap-2 mb-6">
+        <input id="lookup-ref-input" type="text" placeholder="e.g. LR-84291" class="flex-1 bg-surface px-3 py-2 text-xs border border-outline-variant text-on-surface focus:outline-none focus:border-primary uppercase font-mono"/>
+        <button onclick="lookupBookingByInput()" class="px-5 py-2 bg-primary text-on-primary text-xs uppercase tracking-wider font-semibold hover:bg-primary-fixed">
+          Lookup
+        </button>
+      </div>
+
+      <div>
+        <span class="text-[10px] uppercase tracking-widest text-on-surface-variant block mb-2">Saved Bookings On This Device</span>
+        <div id="lookup-recent-list" class="space-y-2 max-h-60 overflow-y-auto">
+          <!-- Dynamically populated by app.js -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Luxury Gift Card Modal -->
+  <div id="gift-card-modal" class="fixed inset-0 z-50 bg-black/85 modal-backdrop hidden items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-surface-container-low border border-primary/40 p-8 max-w-xl w-full shadow-2xl relative my-8">
+      <button onclick="closeGiftCardModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-on-surface">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+
+      <div class="text-center mb-6">
+        <span class="text-[10px] uppercase tracking-widest text-primary font-medium">Haute Dining Certificate</span>
+        <h3 class="font-serif-luxury text-2xl text-on-surface">La Revi Dining Voucher</h3>
+      </div>
+
+      <!-- Live Preview of Gift Card -->
+      <div class="bg-surface border-2 border-primary/60 p-6 shadow-xl mb-6 relative overflow-hidden">
+        <div class="flex justify-between items-start mb-6">
+          <div>
+            <span class="font-serif-luxury text-lg text-primary font-bold">La Revi</span>
+            <span class="text-[9px] uppercase tracking-widest text-on-surface-variant block">Paris • New York</span>
+          </div>
+          <span id="gift-preview-amount" class="font-serif-luxury text-2xl text-primary font-bold">$500</span>
+        </div>
+        <div class="space-y-1 text-xs mb-4">
+          <p class="text-on-surface-variant text-[10px] uppercase tracking-wider">Presented To:</p>
+          <p id="gift-preview-recipient" class="text-on-surface font-serif-luxury text-base">Honored Guest</p>
+        </div>
+        <p id="gift-preview-message" class="text-xs text-on-surface-variant italic font-light mb-4">
+          With our compliments for an unforgettable evening at La Revi.
+        </p>
+        <div class="flex justify-between items-end border-t border-outline-variant/30 pt-3 text-[10px] text-on-surface-variant">
+          <span>Presented By: <strong id="gift-preview-sender" class="text-on-surface font-normal">Alexandre Vance</strong></span>
+          <span class="uppercase font-mono text-primary">VOUCHER #LR-GIFT-992</span>
+        </div>
+      </div>
+
+      <!-- Input Form -->
+      <form onsubmit="purchaseGiftCard(event)" class="space-y-4">
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-[10px] uppercase tracking-widest text-on-surface-variant mb-1">Recipient Name</label>
+            <input id="gift-recipient" type="text" oninput="updateGiftCardPreview()" placeholder="Lord & Lady Hastings" class="w-full bg-surface border-b border-outline-variant text-xs text-on-surface py-2 px-2 focus:outline-none focus:border-primary"/>
+          </div>
+          <div>
+            <label class="block text-[10px] uppercase tracking-widest text-on-surface-variant mb-1">Your Name</label>
+            <input id="gift-sender" type="text" oninput="updateGiftCardPreview()" placeholder="Your Name" class="w-full bg-surface border-b border-outline-variant text-xs text-on-surface py-2 px-2 focus:outline-none focus:border-primary"/>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-[10px] uppercase tracking-widest text-on-surface-variant mb-1">Value Amount</label>
+            <select id="gift-amount-select" onchange="updateGiftCardPreview()" class="w-full bg-surface border-b border-outline-variant text-xs text-on-surface py-2 px-2 focus:outline-none focus:border-primary">
+              <option value="250">$250 (Tasting for One)</option>
+              <option value="500" selected>$500 (Tasting for Two)</option>
+              <option value="1000">$1,000 (Grand Cellar Experience)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-[10px] uppercase tracking-widest text-on-surface-variant mb-1">Recipient Email</label>
+            <input type="email" required placeholder="recipient@estate.com" class="w-full bg-surface border-b border-outline-variant text-xs text-on-surface py-2 px-2 focus:outline-none focus:border-primary"/>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[10px] uppercase tracking-widest text-on-surface-variant mb-1">Personal Message</label>
+          <input id="gift-message" type="text" oninput="updateGiftCardPreview()" placeholder="A celebratory dinner for your anniversary..." class="w-full bg-surface border-b border-outline-variant text-xs text-on-surface py-2 px-2 focus:outline-none focus:border-primary"/>
+        </div>
+
+        <button type="submit" class="w-full py-3.5 bg-primary text-on-primary text-xs uppercase tracking-widest font-semibold hover:bg-primary-fixed transition-colors">
+          Issue Gift Certificate
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 5. Gallery Lightbox Modal -->
+  <div id="gallery-lightbox" class="fixed inset-0 z-50 bg-black/90 modal-backdrop hidden items-center justify-center p-4" onclick="closeGalleryModal()">
+    <div class="relative max-w-5xl w-full" onclick="event.stopPropagation()">
+      <button onclick="closeGalleryModal()" class="absolute -top-10 right-0 text-on-surface hover:text-primary">
+        <span class="material-symbols-outlined text-[28px]">close</span>
+      </button>
+      <img id="gallery-lightbox-img" src="" alt="Gallery Image" class="w-full h-auto max-h-[80vh] object-contain border border-outline-variant/40 shadow-2xl"/>
+      <p id="gallery-lightbox-caption" class="text-center text-xs uppercase tracking-widest text-on-surface-variant mt-4 font-light"></p>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
+

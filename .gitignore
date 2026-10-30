@@ -1,0 +1,10 @@
+# Large archives
+*.zip
+
+# OS metadata
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log

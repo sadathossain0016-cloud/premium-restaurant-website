@@ -1,0 +1,114 @@
+/* Custom luxury styles for La Revi */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap');
+
+:root {
+  --color-surface: #111412;
+  --color-surface-container: #1d201f;
+  --color-surface-container-high: #282b29;
+  --color-surface-container-low: #191c1b;
+  --color-primary: #ffb68d;
+  --color-champagne: #D4AF37;
+  --color-warm-bronze: #6D4629;
+  --color-on-surface: #e1e3e0;
+  --color-on-surface-variant: #d7c2b8;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+}
+
+.font-serif-luxury {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0c0f0d;
+}
+::-webkit-scrollbar-thumb {
+  background: #323533;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffb68d;
+}
+
+/* Subtle luxury glow effect */
+.luxury-glow {
+  box-shadow: 0 0 30px rgba(255, 182, 141, 0.08);
+}
+
+.luxury-border {
+  border: 1px solid rgba(159, 141, 132, 0.2);
+}
+
+.luxury-border-hover:hover {
+  border-color: rgba(255, 182, 141, 0.5);
+}
+
+/* Gold shimmer animation */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.gold-text-shimmer {
+  background: linear-gradient(90deg, #ffb68d 0%, #ffebe2 50%, #D4AF37 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 8s infinite linear;
+}
+
+/* Image zoom transition */
+.image-zoom-container {
+  overflow: hidden;
+}
+.image-zoom-container img,
+.image-zoom-container .bg-cover {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.image-zoom-container:hover img,
+.image-zoom-container:hover .bg-cover {
+  transform: scale(1.06);
+}
+
+/* Modal transitions */
+.modal-backdrop {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Active tab styling */
+.menu-tab-btn.active {
+  background-color: var(--color-primary);
+  color: #502405;
+  font-weight: 600;
+  border-color: var(--color-primary);
+}
+
+/* Print styles for reservation receipt / voucher */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-voucher, #printable-voucher * {
+    visibility: visible;
+  }
+  #printable-voucher {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: white !important;
+    color: black !important;
+  }
+}
+
